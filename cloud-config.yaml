@@ -1,0 +1,29 @@
+#cloud-config
+
+rancher:
+ resize_device: /dev/sda
+ 
+ network:
+    interfaces:
+     eth0:
+      address: 172.16.20.190/24
+      gateway: 172.16.20.2
+      mtu: 1500
+      dhcp: false 
+ recovery: false
+ 
+ debug: false
+ disable:
+  - password
+  - autologin
+ ssh:                                                                                                                                       
+  port: 2222  
+
+ssh_authorized_keys:                
+ - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCcO4PozMc0GSuwPGbjP5m4uSn/BxY27ExyZCidTz4ew5Qs837QfVK88S0zMn4qBnbt8CxIgVYTcOCUKH7GVmcLZQFR+TMV/brMA                                                                                                                                            
+ - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCum3IlqPts0bsgcdkd0SeSgPQ/om6Y2e19a1vpg/IbnBTNQyprhPfSm2PYdEFg6UCBV3R3C/3r1i9NTPOAq4eYL9a2DCcVr3br5
+ - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFPDg0Us9cQVWFDqixLdHVbCKlFRfx4N/UcdEESQqgCwXmQq3OjboO2M9SKmASzeRhVnIOzlwlPts9VgTMOamuR9k4iBuCxaUSP                                                                                                                                            
+
+
+mounts:
+- ["172.16.20.195:/", "/mnt/test", "nfs4", "nolock,proto=tcp,addr=172.16.20.195"]

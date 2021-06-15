@@ -1,0 +1,10 @@
+nodexporter:
+ container_name: node_exporter
+ image: prom/node-exporter:latest 
+ net: host
+ restart: always
+ labels:
+  io.rancher.os.scope: system
+  io.rancher.os.detach: "true"
+  io.rancher.reloadconfig: "true"
+  io.rancher.os.after: network
